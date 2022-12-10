@@ -1,9 +1,10 @@
 package in.ashokit.binding;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import lombok.Data;
 
 @Data
@@ -12,10 +13,12 @@ import lombok.Data;
 public class Contact {
 	@Id
 	@GeneratedValue
-	private Integer contectId;
-	private String contectName;
-	private String contectEmail;
-	private Long contectNumber;
+	private Integer contactId;
+	private String contactName;
+	private String contactEmail;
+	private Long contactNumber;
 	
+	
+	 
 
 }

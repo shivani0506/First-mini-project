@@ -21,21 +21,25 @@ public class ContectRestController {
 	@Autowired
 	private ContectService service;
 	@PostMapping("/contact")
-	public ResponseEntity<String>SaveContact(@RequestBody Contact contact)
+	public ResponseEntity<String >SaveContact(@RequestBody Contact contact)
 	{
-		String msg =service.saveContact(contact);
-	return new ResponseEntity<>(msg,HttpStatus.CREATED) ;
+	String msg =service.saveContact(contact);
+	return new ResponseEntity<String>(msg,HttpStatus.CREATED) ;
 	}
+	
 	@GetMapping("/contacts")
 	public ResponseEntity<List<Contact>>getAllContact(){
 		List<Contact>allContacts =service.getAllContacts();
 		return new ResponseEntity<>(allContacts,HttpStatus.OK);
 	}
+
+	
 @PutMapping("/contact")
 public ResponseEntity<String>updateContect(@RequestBody Contact contact){
 String msg =service.saveContact(contact);
 return new ResponseEntity<>(msg,HttpStatus.OK);
 }
+
 @DeleteMapping("/contact/{contactId}")
 public ResponseEntity<String>deleteContact(@PathVariable  Integer contactId){
 String msg =service.deleteContactById(contactId);

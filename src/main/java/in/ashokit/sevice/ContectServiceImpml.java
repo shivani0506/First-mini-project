@@ -2,6 +2,7 @@ package in.ashokit.sevice;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,18 +13,18 @@ import in.ashokit.repository.ContactRepository;
 public class ContectServiceImpml implements ContectService {
 	@Autowired
 	private ContactRepository repository;
-	public ContectServiceImpml(ContactRepository repository) {
-		this.repository=repository;
-	}
+	
 	@Override
 	public String saveContact(Contact contact) {
+		
 	 contact=repository.save(contact);
-	 if(contact!=null) {
-		 return "suscees fully save";
-	 }
-	 else {
-		 return "not save succesfully";
-	}
+		
+		  if(contact!=null) { return "suscees fully save";
+		  } 
+		  else { return
+		  "not save succesfully"; }
+		 
+	
 	}
 
 	@Override
@@ -33,14 +34,14 @@ public class ContectServiceImpml implements ContectService {
 	}
 
 	@Override
-	public Contact getContactById(Integer contectId) {
-		Optional<Contact>findById=repository.findById(contectId);
+	public Contact getContactById(Integer contactId) {
+		Optional<Contact>findById=repository.findById(contactId);
 		return null;
 	}
 
 	@Override
 	public String updateContact(Contact contact) {
-		if(repository.existsById(contact.getContectId())) {
+		if(repository.existsById(contact.getContactId())) {
 		repository.save(contact);
 		return "update successfully";
 	}else {
